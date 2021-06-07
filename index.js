@@ -12,8 +12,24 @@
 //   });
 
 window.onload = function () {
-  
+
   document.getElementById('btn01').addEventListener("click", fetchMovies);
+
+  //
+
+  // Get the input field
+  var input = document.getElementById("querykey");
+
+  // Execute a function when the user releases a key on the keyboard
+  input.addEventListener("keyup", function (event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      document.getElementById("btn01").click();
+    }
+  });
 }
 
 const url = ['https://friends.fandom.com/',
@@ -27,7 +43,7 @@ const url = ['https://friends.fandom.com/',
 ];
 
 const series = ['Friends', 'H.I.M.Y.M', 'The Office (US)', 'The Big Bang Theory',
-  'Batman', 'Harry Potter', 'Breaking Bad', 'G.O.T' ];
+  'Batman', 'Harry Potter', 'Breaking Bad', 'G.O.T'];
 
 var title;
 var link;
